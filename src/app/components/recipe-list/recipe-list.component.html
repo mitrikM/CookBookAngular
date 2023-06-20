@@ -1,0 +1,9 @@
+<div>
+  <div class="flex space-x-2 ">
+  <h1>hľadaj</h1>
+  <input type="text" class="border-2 rounded w-1/8" [(ngModel)]="searchInput"/>
+  </div>
+  <div class="flex flex-wrap justify-around">
+    <app-recipe-card *ngFor="let recipe of recipes | filter:searchInput" [recipe]="recipe"/>
+  </div>
+</div>
