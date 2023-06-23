@@ -1,0 +1,41 @@
+<div class="max-w-7xl mx-auto">
+  <h1>{{ recipeDetail.title }}</h1>
+  <form  (ngSubmit)="onSubmit()">
+    <div>
+      <label>Title</label>
+      <input [(ngModel)]="recipeDetail.title" name="title" type="text" class="border-2 rounded"  />
+    </div>
+    <div>
+      <label>Time to prepare</label>
+      <input [(ngModel)]="recipeDetail.preparationTime" name="preparationTime" type="text" class="border-2 rounded"  />
+    </div>
+    <div>
+      <label>Serving count</label>
+      <input [(ngModel)]="recipeDetail.servingCount" name="servingCount" type="text" class="border-2 rounded"  />
+    </div>
+    <div>
+      <label>Side Dish</label>
+      <input [(ngModel)]="recipeDetail.sideDish" name='sideDish' type="text" class="border-2 rounded"  />
+    </div>
+
+    <div>
+      <h1>Ingredients</h1>
+      <div>
+        <ul *ngFor="let item of recipeDetail.ingredients">
+          <li>{{item.amount}} {{item.amountUnit}} {{item.name}} </li>
+        </ul>
+      </div>
+      <input  [(ngModel)]="ingredient.amount" name="amount" type="text" class="border-2 rounded" placeholder="amount"/>
+      <input  [(ngModel)]="ingredient.amountUnit" name="amountUnit" type="text" class="border-2 rounded" placeholder="amountUnit"/>
+      <input [(ngModel)]="ingredient.name" name="name" type="text" class="border-2 rounded" placeholder="Name"/>
+      <button type="button" (click)="handleOnClick()">Add ingredient</button>
+    </div>
+
+
+    <div>
+      <label>Directions</label>
+      <textarea [(ngModel)]="recipeDetail.directions" name="directions" class="border-2 rounded" cols="80" rows="20" ></textarea>
+    </div>
+    <button class="primary-button large-button" type="submit">Submit</button>
+  </form>
+</div>

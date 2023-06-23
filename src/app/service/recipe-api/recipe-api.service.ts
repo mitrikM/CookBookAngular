@@ -16,7 +16,8 @@ export class RecipeApiService {
    getAllRecipes():Observable<IRecipe[]>{
     return this.http.get<IRecipe[]>(this._apiLink)
   }
-  getRecipeDetail(slug:string){
+
+  getRecipeDetail(slug: string | null){
     return this.http.get<IRecipeDetail>(this._apiLink +`/${slug}`)
   }
 

@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {IRecipe} from "../../interface/IRecipe";
 import {RecipeApiService} from "../../service/recipe-api/recipe-api.service";
+import {of} from "rxjs";
 
 @Component({
   selector: 'app-home-page',

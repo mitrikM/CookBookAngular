@@ -1,3 +1,36 @@
-<div>
-  Slug: {{ slug}}
+<div class="max-w-7xl mx-auto mt-4">
+  <header class="flex justify-between">
+    <div>
+      <h1 class="font-bold text-4xl text-[#146C94]">{{recipeDetail.title}}</h1>
+    </div>
+    <div class="flex space-x-2">
+      <button class="small-button secondary-button" (click)="navigate()">Edit</button>
+      <button class="small-button error-button">Delete</button>
+    </div>
+  </header>
+  <section id="body">
+    <div class="flex flex-wrap">
+      <h2>{{recipeDetail.preparationTime}}</h2>
+      <h2>{{recipeDetail.servingCount}}</h2>
+    </div>
+    <div class="flex  justify-between">
+      <div class="">
+        {{recipeDetail.directions}}
+      </div>
+      <div class="">
+        <table class="table-auto mr-10  ">
+          <tbody>
+          <tr class="py-2" *ngFor="let item of recipeDetail.ingredients">
+            <td class="pr-4">{{ item.amount }}</td>
+            <td class="pr-4">{{ item.amountUnit }}</td>
+            <td>{{ item.name }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+  </section>
 </div>
+

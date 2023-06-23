@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {RecipeDetailPageComponent} from "./pages/recipe-detail-page/recipe-detail-page.component";
 import {HomePageComponent} from "./pages/home-page/home-page.component";
+import {RecipeEditPageComponent} from "./pages/recipe-edit-page/recipe-edit-page.component";
 
 const routes: Routes = [
   {
@@ -11,7 +12,11 @@ const routes: Routes = [
   {
     path: 'recipes/:slug',
     component: RecipeDetailPageComponent
-  }
+  },
+  {
+    path: 'recipes/:slug/edit',
+    component: RecipeEditPageComponent,
+  },
 ];
 
 @NgModule({

@@ -4,6 +4,9 @@
   <input type="text" class="border-2 rounded w-1/8" [(ngModel)]="searchInput"/>
   </div>
   <div class="flex flex-wrap justify-around">
-    <app-recipe-card *ngFor="let recipe of recipes | filter:searchInput" [recipe]="recipe"/>
+    <app-recipe-card
+      *ngFor="let recipe of recipes | filter:searchInput"
+      [recipe]="recipe"
+    />
   </div>
 </div>

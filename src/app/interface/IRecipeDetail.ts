@@ -4,13 +4,14 @@ export interface IRecipeDetail {
   preparationTime: number,
   servingCount: number,
   directions: string,
-  ingredients: {
+  sideDish: string[],
+  ingredients: [{
     _id:string,
     isGroup: boolean,
     amountUnit: string,
     amount: number,
     name: string
-  }
+  }],
   lastModifiedDate: Date,
   __v: number
 }
