@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {RecipeApiService} from "../../service/recipe-api/recipe-api.service";
 import {IRecipeDetail} from "../../interface/IRecipeDetail";
-import {FormBuilder} from "@angular/forms";
 import {IIngredient} from "../../interface/IIngredient";
 
 @Component({
@@ -11,6 +10,7 @@ import {IIngredient} from "../../interface/IIngredient";
   styleUrls: ['./recipe-edit-page.component.css']
 })
 export class RecipeEditPageComponent implements OnInit {
+  date: Date = new Date
   slug: string | null = ''
   recipeDetail: IRecipeDetail = {
     __v: 0,
@@ -21,12 +21,12 @@ export class RecipeEditPageComponent implements OnInit {
     preparationTime: 0,
     servingCount: 0,
     title: "",
-    sideDish: []
+    sideDish: ''
   }
-
+  ingredients:string[]=[]
   ingredient:IIngredient={_id: "", amount: 0, amountUnit: "", isGroup: false, name: ""}
-
-  constructor(private route: ActivatedRoute, private RecipeApiService: RecipeApiService, private fb: FormBuilder) {
+  sideDishes:string[]=[]
+  constructor(private route: ActivatedRoute,private router: Router, private RecipeApiService: RecipeApiService, ) {
 
   }
   ngOnInit(): void {
@@ -36,15 +36,43 @@ export class RecipeEditPageComponent implements OnInit {
         this.recipeDetail = r
       }
     )
+    this.RecipeApiService.getAllIngredients().subscribe(
+      r => {
+        this.ingredients = r
+      }
+    )
+    this.RecipeApiService.getAllSideDishes().subscribe(
+      r=>{
+        this.sideDishes=r
+      }
+    )
   }
   onSubmit(){
-    console.log('submitted form', this.recipeDetail)
+      this.RecipeApiService.editRecipe(this.recipeDetail._id,this.recipeDetail)
   }
 
 
   handleOnClick() {
+    const ingredient:IIngredient={
+      _id: this.ingredient._id,
+      name: this.ingredient.name,
+      amount: this.ingredient.amount,
+      amountUnit: this.ingredient.amountUnit,
+      isGroup: this.ingredient.isGroup
+    }
     this.recipeDetail.ingredients.push(
-      this.ingredient
+      ingredient
     )
   }
+
+  setName($event: string) {
+    this.ingredient.name=$event;
+  }
+
+  deleteItem(item:IIngredient) {
+    const index= this.recipeDetail.ingredients.indexOf(item)
+    this.recipeDetail.ingredients.splice(index,1)
+  }
+
+
 }

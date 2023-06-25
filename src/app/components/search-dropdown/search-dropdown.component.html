@@ -1,0 +1,6 @@
+<input class="rounded border-2" type="text" [(ngModel)]="searchTerm" [ngModelOptions]='{standalone: true}' (input)="onSearchChange()"/>
+<span *ngIf="showDropdown" class="absolute block">
+  <ul *ngFor="let item of filteredItems">
+    <li class="cursor-pointer border-2" (click)="setName(item)">  {{item}}</li>
+  </ul>
+</span>

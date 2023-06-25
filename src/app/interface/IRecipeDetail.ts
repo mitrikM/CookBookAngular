@@ -4,7 +4,7 @@ export interface IRecipeDetail {
   preparationTime: number,
   servingCount: number,
   directions: string,
-  sideDish: string[],
+  sideDish: string,
   ingredients: [{
     _id:string,
     isGroup: boolean,

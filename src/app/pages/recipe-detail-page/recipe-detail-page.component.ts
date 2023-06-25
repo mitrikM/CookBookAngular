@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {IRecipeDetail} from "../../interface/IRecipeDetail";
 import {RecipeApiService} from "../../service/recipe-api/recipe-api.service";
-import * as MarkdownIt from 'markdown-it';
 
 @Component({
   selector: 'app-recipe-detail-page',
@@ -20,7 +19,7 @@ export class RecipeDetailPageComponent implements OnInit {
     preparationTime: 0,
     servingCount: 0,
     title: "",
-    sideDish:[]
+    sideDish:''
   }
   constructor(private route: ActivatedRoute,private  router: Router, private RecipeApiService:RecipeApiService) {
 
