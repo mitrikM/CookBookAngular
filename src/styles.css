@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.large-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.5rem;
+  height: 3.5rem;
+  border-radius: 8px;
+}
+.primary-button{
+  color: #FFFFFF;
+  background-color: #146C94;
+}
+.secondary-button{
+  color: #146C94;
+  border-color: #146C94;
+  border-width: 1px;
+}
+.third-button{
+  color: #FFFFFF;
+  background-color: #333333;
+}
+.small-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.5rem;
+  height: 2.5rem;
+  border-radius: 4px;
+}
+.secondary-button:hover{
+  background-color: #146C94;
+  color: #F6F1F1;
+}
+
+.white-color{
+  background-color: #F6F1F1;
+}
+.primary-color{
+  background-color: #146C94;
+}
+.error-button{
+  background-color: red;
+  color: white;
+}
+.white-text{
+  color: #F6F1F1;
+}

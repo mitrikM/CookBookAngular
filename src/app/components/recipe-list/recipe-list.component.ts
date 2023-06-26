@@ -13,7 +13,5 @@ export class RecipeListComponent {
   constructor(private router:Router) {
   }
 
-  createNewRecipe() {
-    this.router.navigateByUrl('/create-recipe')
-  }
+
 }

@@ -4,5 +4,5 @@ export interface IRecipe {
   preparationTime:string,
   slug: string,
   lastModifiedDate: Date,
-  sideDish: string[]
+  sideDish: string
 }

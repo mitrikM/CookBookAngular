@@ -15,6 +15,7 @@ import { RecipeEditPageComponent } from './pages/recipe-edit-page/recipe-edit-pa
 import { SearchDropdownComponent } from './components/search-dropdown/search-dropdown.component';
 import { RecipeFormComponent } from './components/recipe-form/recipe-form.component';
 import { RecipeCreatePageComponent } from './pages/recipe-create-page/recipe-create-page.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { RecipeCreatePageComponent } from './pages/recipe-create-page/recipe-cre
     SearchDropdownComponent,
     RecipeFormComponent,
     RecipeCreatePageComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
