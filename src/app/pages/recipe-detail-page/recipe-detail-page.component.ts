@@ -11,6 +11,7 @@ import {RecipeApiService} from "../../service/recipe-api/recipe-api.service";
 export class RecipeDetailPageComponent implements OnInit {
   slug: string | null = '';
   recipeDetail:IRecipeDetail={
+    slug:'',
     __v: 0,
     _id: "",
     directions: "",

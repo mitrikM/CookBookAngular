@@ -13,6 +13,8 @@ import {FilterPipe} from './filter.pipe';
 import {RecipeDetailPageComponent} from './pages/recipe-detail-page/recipe-detail-page.component';
 import { RecipeEditPageComponent } from './pages/recipe-edit-page/recipe-edit-page.component';
 import { SearchDropdownComponent } from './components/search-dropdown/search-dropdown.component';
+import { RecipeFormComponent } from './components/recipe-form/recipe-form.component';
+import { RecipeCreatePageComponent } from './pages/recipe-create-page/recipe-create-page.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { SearchDropdownComponent } from './components/search-dropdown/search-dro
     RecipeDetailPageComponent,
     RecipeEditPageComponent,
     SearchDropdownComponent,
+    RecipeFormComponent,
+    RecipeCreatePageComponent,
   ],
   imports: [
     BrowserModule,

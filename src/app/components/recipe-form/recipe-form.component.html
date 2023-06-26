@@ -1,0 +1,59 @@
+<div class=" mx-auto mt-5 max-w-7xl">
+  <form method="post" (ngSubmit)="onSubmit()">
+    <div class="flex justify-between flex-wrap">
+      <h1 class="text-4xl">{{ recipeDetail.title }}</h1>
+      <button class="primary-button large-button" type="submit" >Submit</button>
+    </div>
+    <div class="mt-5 flex justify-between flex-wrap">
+      <div class="space-y-2.5">
+        <div class="">
+          <h4>Title</h4>
+          <input [(ngModel)]="recipeDetail.title" name="title" type="text" class="border-2 rounded"/>
+        </div>
+        <div>
+          <h4>Time to prepare</h4>
+          <input [(ngModel)]="recipeDetail.preparationTime" name="preparationTime" type="text"
+                 class="border-2 rounded"/>
+        </div>
+        <div>
+          <h4>Serving count</h4>
+          <input [(ngModel)]="recipeDetail.servingCount" name="servingCount" type="text" class="border-2 rounded"/>
+        </div>
+        <div>
+          <h4>Side Dish</h4>
+          <select class="rounded border-2 " name="selectedSideDish" [(ngModel)]="recipeDetail.sideDish">
+            <option (click)="recipeDetail.sideDish=item" *ngFor="let item of sideDishes" [value]="item">{{ item }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="space-y-2.5">
+        <h1 class="">Ingredients</h1>
+        <div>
+          <ul *ngFor="let item of recipeDetail.ingredients">
+            <li>{{item.amount}} {{item.amountUnit}} {{item.name}} <img class="w-3 inline-block"
+                                                                       (click)="deleteItem(item)"
+                                                                       src="/assets/trash-solid.svg" alt="trashcan"/></li>
+          </ul>
+        </div>
+        <div>
+          <input [(ngModel)]="ingredient.amount" name="amount" type="text" class="border-2 rounded"
+                 placeholder="amount"/>
+          <input [(ngModel)]="ingredient.amountUnit" name="amountUnit" type="text" class="border-2 rounded"
+                 placeholder="amountUnit"/>
+        </div>
+
+        <app-search-dropdown (name)="setName($event)" [items]="ingredients"/>
+        <button type="button" (click)="handleOnClick()">Add ingredient</button>
+      </div>
+
+      <div >
+        <div class="space-y-2.5">
+          <h4>Directions</h4>
+          <textarea [(ngModel)]="recipeDetail.directions" name="directions" class="border-2 rounded  " cols="80"
+                    rows="20"></textarea>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>

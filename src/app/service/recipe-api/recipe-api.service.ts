@@ -30,10 +30,19 @@ export class RecipeApiService {
     return this.http.get<string[]>(this._apiLink + '/side-dishes')
   }
 
-  editRecipe(id: string | null, recipe: IRecipeDetail) {
+  editRecipe(id: string | undefined, recipe: IRecipeDetail) {
     const headers = new HttpHeaders().set('Content-Type', 'application/json')
     return this.http.post(this._apiLink + `/${id}`, recipe, {headers}).subscribe((r) => {
-        console.log('Post sucs', r)
+        console.log('Post success', r)
+      }
+    )
+  }
+  createRecipe(recipe: IRecipeDetail){
+    const headers = new HttpHeaders().set('Content-Type', 'application/json')
+
+    return this.http.post(this._apiLink,recipe,{headers}).subscribe(
+      (r)=>{
+        console.log('post success', r)
       }
     )
   }

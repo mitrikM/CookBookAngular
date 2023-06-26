@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {RecipeApiService} from "../../service/recipe-api/recipe-api.service";
 import {IRecipeDetail} from "../../interface/IRecipeDetail";
-import {IIngredient} from "../../interface/IIngredient";
 
 @Component({
   selector: 'app-recipe-edit-page',
@@ -10,11 +9,11 @@ import {IIngredient} from "../../interface/IIngredient";
   styleUrls: ['./recipe-edit-page.component.css']
 })
 export class RecipeEditPageComponent implements OnInit {
-  date: Date = new Date
   slug: string | null = ''
   recipeDetail: IRecipeDetail = {
     __v: 0,
     _id: "",
+    slug: '',
     directions: "",
     ingredients: [{_id: "", amount: 0, amountUnit: "", isGroup: false, name: ""}],
     lastModifiedDate: new Date(),
@@ -24,7 +23,6 @@ export class RecipeEditPageComponent implements OnInit {
     sideDish: ''
   }
   ingredients:string[]=[]
-  ingredient:IIngredient={_id: "", amount: 0, amountUnit: "", isGroup: false, name: ""}
   sideDishes:string[]=[]
   constructor(private route: ActivatedRoute,private router: Router, private RecipeApiService: RecipeApiService, ) {
 
@@ -47,32 +45,19 @@ export class RecipeEditPageComponent implements OnInit {
       }
     )
   }
-  onSubmit(){
-      this.RecipeApiService.editRecipe(this.recipeDetail._id,this.recipeDetail)
-  }
 
 
-  handleOnClick() {
-    const ingredient:IIngredient={
-      _id: this.ingredient._id,
-      name: this.ingredient.name,
-      amount: this.ingredient.amount,
-      amountUnit: this.ingredient.amountUnit,
-      isGroup: this.ingredient.isGroup
+ async onFormSubmit($event: IRecipeDetail) {
+    try {
+    await this.RecipeApiService.editRecipe($event._id,$event)
+
     }
-    this.recipeDetail.ingredients.push(
-      ingredient
-    )
+    catch (e){
+      console.log(e)
+    }
+    finally {
+      await this.router.navigateByUrl(`/`)
+    }
   }
-
-  setName($event: string) {
-    this.ingredient.name=$event;
-  }
-
-  deleteItem(item:IIngredient) {
-    const index= this.recipeDetail.ingredients.indexOf(item)
-    this.recipeDetail.ingredients.splice(index,1)
-  }
-
-
 }
+

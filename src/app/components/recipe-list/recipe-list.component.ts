@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {IRecipe} from "../../interface/IRecipe";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-recipe-list',
@@ -9,6 +10,10 @@ import {IRecipe} from "../../interface/IRecipe";
 export class RecipeListComponent {
   @Input() recipes!:IRecipe[];
   searchInput: string=''
-  constructor() {
+  constructor(private router:Router) {
+  }
+
+  createNewRecipe() {
+    this.router.navigateByUrl('/create-recipe')
   }
 }
