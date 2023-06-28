@@ -14,4 +14,8 @@ export class NavbarComponent {
   createNewRecipe() {
     this.router.navigateByUrl('/create-recipe')
   }
+
+  redirectHome() {
+    this.router.navigateByUrl('')
+  }
 }

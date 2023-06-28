@@ -9,6 +9,7 @@ import {IRecipeDetail} from "../../interface/IRecipeDetail";
 })
 export class RecipeApiService {
   private _apiLink = 'https://exercise.cngroup.dk/api/recipes'
+//  private recipes$ = new BehaviorSubject<IRecipe[]>([])
 
   constructor(private http: HttpClient) {
 
@@ -39,11 +40,15 @@ export class RecipeApiService {
   }
   createRecipe(recipe: IRecipeDetail){
     const headers = new HttpHeaders().set('Content-Type', 'application/json')
-
     return this.http.post(this._apiLink,recipe,{headers}).subscribe(
       (r)=>{
         console.log('post success', r)
       }
     )
   }
+  // deleteRecipe(recipe:IRecipeDetail, id:string | null){
+  //   const headers = new HttpHeaders().set('Content-Type', 'application/json')
+  //   this.http.delete(this._apiLink + `/${id}`, {headers})
+  //   return
+  // }
 }

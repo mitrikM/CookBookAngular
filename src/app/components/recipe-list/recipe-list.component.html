@@ -1,8 +1,34 @@
 <div class=" ">
-    <div class="recipe-grid ">
-      <app-recipe-card
-        *ngFor="let recipe of recipes | filter:searchInput"
-        [recipe]="recipe"
-      />
+  <div class="filter">
+    <div class="filter-by-name">
+      <h1>filter by name</h1>
+      <input [(ngModel)]="searchInput">
+    </div>
+    <div class="cursor-pointer   " (mouseover)="showFilter=true" (mouseleave)="showFilter=false">
+      <div class="flex flex-row-reverse items-center">
+        <i class="fa-solid fa-arrow-down-wide-short pl-2"></i>
+        <h4>filter</h4>
+      </div>
+      <span *ngIf="showFilter" class="">
+        <div class="flex cursor-pointer w-full" (click)="orderBy()">
+          <h1>Order by</h1>
+          <i *ngIf="!orderByAZ.sort" class="fa-solid fa-arrow-down-a-z"></i>
+          <i *ngIf="orderByAZ.sort" class="fa-solid fa-arrow-down-z-a"></i>
+        </div>
+        <div class="flex cursor-pointer" (click)="setOrderByPrep()">
+          <h1>Prep time</h1>
+          <i *ngIf="!orderByPrep.sort" class="fa-solid fa-arrow-down-a-z"></i>
+          <i *ngIf="orderByPrep.sort" class="fa-solid fa-arrow-down-z-a"></i>
+        </div>
+      </span>
+
+    </div>
+  </div>
+  <div class="recipe-grid ">
+    <app-recipe-card
+      *ngFor="let recipe of recipes | filter:searchInput | orderBy:orderByAZ:orderByPrep"
+      [recipe]="recipe"
+    ></app-recipe-card>
+
   </div>
 </div>

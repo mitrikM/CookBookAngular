@@ -1,4 +1,43 @@
 .navbar{
   display: flex;
-  flex-direction: row-reverse;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #F6F1F1;
+  color: #333333;
+  padding: 0 7vw;
 }
+.title{
+  font-size: 3rem;
+  color: #146C94;
+  font-weight: bold;
+}
+
+
+.search {
+  position: relative;
+  color: #333333;
+  font-size: 16px;
+  margin: auto;
+}
+
+.search input {
+  width: 250px;
+  height: 32px;
+  background: #F6F1F1;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+}
+
+.search input {
+  text-indent: 32px;
+}
+
+.search .fa-search {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+
+

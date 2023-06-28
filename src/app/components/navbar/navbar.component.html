@@ -1,9 +1,14 @@
 <div class="navbar ">
   <div>
-    <h1>Search for recipes</h1>
-    <input type="text" class="border-2 rounded w-1/8" [(ngModel)]="searchInput"/>
+    <h1 class="title cursor-pointer" (click)='redirectHome()'>Cookbook</h1>
   </div>
-  <div>
-    <button (click)="createNewRecipe()">new recipe</button>
+  <div class="flex my-auto space-x-5">
+    <div class="search">
+      <span class="fa-solid fa-search"></span>
+      <input type="text" class="border-2 rounded w-1/8" placeholder=" search for recipe" [(ngModel)]="searchInput">
+    </div>
+    <div>
+      <button class="small-button secondary-button" (click)="createNewRecipe()">new recipe</button>
+    </div>
   </div>
 </div>

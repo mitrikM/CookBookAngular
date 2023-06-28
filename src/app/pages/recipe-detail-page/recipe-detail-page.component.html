@@ -1,3 +1,4 @@
+<app-navbar/>
 <div class="max-w-7xl mx-auto mt-4">
   <header class="flex justify-between">
     <div>
@@ -5,7 +6,7 @@
     </div>
     <div class="flex space-x-2">
       <button class="small-button secondary-button" (click)="navigate()">Edit</button>
-      <button class="small-button error-button">Delete</button>
+      <button class="small-button error-button " (click)="delete()">Delete</button>
     </div>
   </header>
   <section id="body">
@@ -14,8 +15,8 @@
       <h2>{{recipeDetail.servingCount}}</h2>
     </div>
     <div class="flex  justify-between">
-      <div class="">
-        {{recipeDetail.directions}}
+      <div class="" [innerHTML]="recipeDetail.directions | markdown">
+
       </div>
       <div class="">
         <table class="table-auto mr-10  ">

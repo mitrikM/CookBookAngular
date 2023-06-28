@@ -9,13 +9,15 @@ import {RecipeCardComponent} from './components/recipe-card/recipe-card.componen
 import {NgOptimizedImage} from "@angular/common";
 import {HomePageComponent} from './pages/home-page/home-page.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {FilterPipe} from './filter.pipe';
+import {FilterPipe} from './pipes/filter.pipe';
 import {RecipeDetailPageComponent} from './pages/recipe-detail-page/recipe-detail-page.component';
 import { RecipeEditPageComponent } from './pages/recipe-edit-page/recipe-edit-page.component';
 import { SearchDropdownComponent } from './components/search-dropdown/search-dropdown.component';
 import { RecipeFormComponent } from './components/recipe-form/recipe-form.component';
 import { RecipeCreatePageComponent } from './pages/recipe-create-page/recipe-create-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { OrderByPipe } from './pipes/order-by.pipe';
+import { MarkdownPipe } from './pipes/markdown.pipe';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     RecipeFormComponent,
     RecipeCreatePageComponent,
     NavbarComponent,
+    OrderByPipe,
+    MarkdownPipe,
   ],
   imports: [
     BrowserModule,

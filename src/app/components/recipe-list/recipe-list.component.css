@@ -1,5 +1,20 @@
 .recipe-grid {
   display: grid;
-  margin: auto;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.filter{
+  padding: 1vw 0.5vw 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-by-name{
+
+}
+
+.filter-by-name input{
+  border-width: 2px;
+
 }

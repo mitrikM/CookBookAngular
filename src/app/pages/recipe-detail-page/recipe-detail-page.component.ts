@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {IRecipeDetail} from "../../interface/IRecipeDetail";
 import {RecipeApiService} from "../../service/recipe-api/recipe-api.service";
+import {marked} from "marked";
 
 @Component({
   selector: 'app-recipe-detail-page',
@@ -36,4 +37,9 @@ export class RecipeDetailPageComponent implements OnInit {
     this.router.navigateByUrl(`/recipes/${this.slug}/edit`)
   }
 
+  delete() {
+    alert('Do u really wanna delete this recipe?')
+  }
+
+  protected readonly marked = marked;
 }
