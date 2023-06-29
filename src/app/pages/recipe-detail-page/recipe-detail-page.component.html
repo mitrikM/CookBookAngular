@@ -10,13 +10,15 @@
     </div>
   </header>
   <section id="body">
-    <div class="flex flex-wrap">
-      <h2>{{recipeDetail.preparationTime}}</h2>
-      <h2>{{recipeDetail.servingCount}}</h2>
+    <div class="pt-2">
+      <h2 class="text-lg">preparation time: {{recipeDetail.preparationTime}}</h2>
+      <h2 class="text-lg"> serving count: {{recipeDetail.servingCount}}</h2>
     </div>
     <div class="flex  justify-between">
-      <div class="" [innerHTML]="recipeDetail.directions | markdown">
-
+      <div class="pt-2">
+      <h1 class="text-xl font-bold">Directions</h1>
+      <div class="text-lg " [innerHTML]="recipeDetail.directions | markdown">
+      </div>
       </div>
       <div class="">
         <table class="table-auto mr-10  ">
